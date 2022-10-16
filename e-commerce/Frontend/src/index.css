@@ -18,6 +18,14 @@ main {
   flex-wrap: wrap;
   justify-content: center;
 }
+.rating span
+{
+  color:#ffc000
+}
+.btn-primary{
+  background-color: #f0c040;
+  color: black;
+}
 .product {
   border: 1px solid #404040;
   margin: 1rem;
