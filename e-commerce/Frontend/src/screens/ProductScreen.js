@@ -5,7 +5,7 @@ const ProductScreen = () => {
     const {slug} = params;
   return (
     <div>
-      {slug}
+      <h1>{slug}</h1>
     </div>
   )
 }
