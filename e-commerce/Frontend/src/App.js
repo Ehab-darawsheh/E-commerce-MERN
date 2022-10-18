@@ -14,14 +14,17 @@ import { Link } from "react-router-dom";
 import { Store } from "./store";
 import CartScreen from "./screens/CartScreen";
 import SigninScreen from "./screens/SigninScreen";
+import ShippingAddressScreen from "./screens/ShippingAddressScreen";
 
 function App() {
   const { state ,dispatch: ctxDispatch } = useContext(Store);
   const { cart, userInfo } = state;
 
+
   const signoutHandler = () => {
     ctxDispatch({type: 'USER_SIGNOUT'});
     localStorage.removeItem('userInfo');
+    localStorage.removeItem('shippingAddress');
   }
 
   return (
@@ -52,7 +55,7 @@ function App() {
                       <NavDropdown.Item>Order History</NavDropdown.Item>
                     </LinkContainer>
                     <NavDropdown.Divider />
-                    <Link className="dropdown-item" to='#signout' onClick={signoutHandler}>
+                    <Link className="dropdown-item" to='/' onClick={signoutHandler}>
                     Sign Out
                   </Link>
                   </NavDropdown>
@@ -71,6 +74,7 @@ function App() {
               <Route path="/product/:slug" element={<ProductScreen />} />
               <Route path="/cart" element={<CartScreen />} />
               <Route path="/signin" element={<SigninScreen />} />
+              <Route path="/shipping" element={<ShippingAddressScreen />} />
               <Route path="/" element={<HomeScreen />} />
             </Routes>
           </Container>
