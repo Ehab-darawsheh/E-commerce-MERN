@@ -1,4 +1,20 @@
+const bcrypt = require('bcryptjs')
+
 const data = {
+  Users:[
+    {
+      name: 'Ehab',
+      email: 'ehabADMIN@gmail.com',
+      password: bcrypt.hashSync('123456'),
+      isAdmin: true
+    },
+    {
+      name: 'diyaa',
+      email: 'dIyaa@gmail.com',
+      password: bcrypt.hashSync('123456'),
+      isAdmin: false
+    }
+  ],
     products: [ // i have four products here
       {
         //_id : '1',
@@ -52,6 +68,7 @@ const data = {
         numReviews: 7,
         description: 'high quality product',
       },
-    ],
+    ]
+   
   };
   module.exports = data;
