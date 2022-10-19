@@ -72,3 +72,17 @@ const data = {
    
   };
   module.exports = data;
+  /* Users:[
+    {
+      name: 'Ehab',
+      email: 'ehabADMIN@gmail.com',
+      password: bcrypt.hashSync('123456'),
+      isAdmin: true
+    },
+    {
+      name: 'diyaa',
+      email: 'dIyaa@gmail.com',
+      password: bcrypt.hashSync('123456'),
+      isAdmin: false
+    }
+  ] */
