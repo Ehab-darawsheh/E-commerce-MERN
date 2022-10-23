@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
-import CheckoutSteps from "../components/CheckoutSteps";
 import { Helmet } from "react-helmet-async";
+import { useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import CheckoutSteps from "../components/CheckoutSteps";
 import { Store } from "../store";
-import { useNavigate } from "react-router-dom";
 
 export default function PaymentMethodScreen() {
   const navigate = useNavigate();
@@ -22,7 +22,6 @@ export default function PaymentMethodScreen() {
       navigate("/shipping");
     }
   }, [shippingAddress, navigate]);
-
   const submitHandler = (e) => {
     e.preventDefault();
     ctxDispatch({ type: "SAVE_PAYMENT_METHOD", payload: paymentMethodName });
@@ -41,11 +40,11 @@ export default function PaymentMethodScreen() {
           <div className="mb-3">
             <Form.Check
               type="radio"
-              id="Paypal"
-              label="Paypal"
-              value="Paypal"
-              checked={paymentMethodName === "Paypal"}
-              onClick={(e) => setPaymentMethod(e.target.value)}
+              id="PayPal"
+              label="PayPal"
+              value="PayPal"
+              checked={paymentMethodName === "PayPal"}
+              onChange={(e) => setPaymentMethod(e.target.value)}
             />
           </div>
           <div className="mb-3">
@@ -55,7 +54,7 @@ export default function PaymentMethodScreen() {
               label="Stripe"
               value="Stripe"
               checked={paymentMethodName === "Stripe"}
-              onClick={(e) => setPaymentMethod(e.target.value)}
+              onChange={(e) => setPaymentMethod(e.target.value)}
             />
           </div>
           <div className="mb-3">

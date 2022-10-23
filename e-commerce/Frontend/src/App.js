@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import {ToastContainer} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
@@ -19,16 +19,16 @@ import ShippingAddressScreen from "./screens/ShippingAddressScreen";
 import PaymentMethodScreen from "./screens/PaymentMethodScreen";
 
 function App() {
-  const { state ,dispatch: ctxDispatch } = useContext(Store);
+  const { state, dispatch: ctxDispatch } = useContext(Store);
+
   const { cart, userInfo } = state;
 
-
   const signoutHandler = () => {
-    ctxDispatch({type: 'USER_SIGNOUT'});
-    localStorage.removeItem('userInfo');
-    localStorage.removeItem('shippingAddress');
-    localStorage.removeItem('paymentMethod');
-  }
+    ctxDispatch({ type: "USER_SIGNOUT" });
+    localStorage.removeItem("userInfo");
+    localStorage.removeItem("shippingAddress");
+    localStorage.removeItem("paymentMethod");
+  };
 
   return (
     <BrowserRouter>
@@ -45,25 +45,29 @@ function App() {
                   Cart
                   {cart.cartItems.length > 0 && (
                     <Badge pill bg="danger">
-                      {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+                      {cart.cartItems.reduce((a, c) => a + c.quantity,0)}
                     </Badge>
                   )}
                 </Link>
                 {userInfo ? (
-                  <NavDropdown title={userInfo.name} id='basic-nav-dropdown'>
-                    <LinkContainer to='/profile'>
+                  <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
+                    <LinkContainer to="/profile">
                       <NavDropdown.Item>User Profile</NavDropdown.Item>
                     </LinkContainer>
-                    <LinkContainer to='/orderhistory'>
+                    <LinkContainer to="/orderhistory">
                       <NavDropdown.Item>Order History</NavDropdown.Item>
                     </LinkContainer>
                     <NavDropdown.Divider />
-                    <Link className="dropdown-item" to='/' onClick={signoutHandler}>
-                    Sign Out
-                  </Link>
+                    <Link
+                      className="dropdown-item"
+                      to="/"
+                      onClick={signoutHandler}
+                    >
+                      Sign Out
+                    </Link>
                   </NavDropdown>
                 ) : (
-                  <Link className="nav-link" to='/signin'>
+                  <Link className="nav-link" to="/signin">
                     Sign In
                   </Link>
                 )}
@@ -78,7 +82,7 @@ function App() {
               <Route path="/cart" element={<CartScreen />} />
               <Route path="/signin" element={<SigninScreen />} />
               <Route path="/signup" element={<SignupScreen />} />
-              <Route path="/payment" element={<PaymentMethodScreen />} />
+              <Route path="/payment" element={<PaymentMethodScreen />}></Route>
               <Route path="/shipping" element={<ShippingAddressScreen />} />
               <Route path="/" element={<HomeScreen />} />
             </Routes>

@@ -11,7 +11,7 @@ import Card from "react-bootstrap/Card";
 import axios from "axios";
 
 export default function CartScreen() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const {
     cart: { cartItems },
@@ -30,8 +30,8 @@ export default function CartScreen() {
   };
 
   const checkoutHandler = () => {
-    navigate('/signin?redirect=/shipping');
-  } 
+    navigate("/signin?redirect=/shipping");
+  };
   return (
     <div>
       <Helmet>
@@ -47,7 +47,7 @@ export default function CartScreen() {
           ) : (
             <ListGroup>
               {cartItems.map((item) => (
-                <ListGroup.Item ket={item._id}>
+                <ListGroup.Item key={item._id}>
                   <Row className="align-items-center">
                     <Col md={4}>
                       <img
