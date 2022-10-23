@@ -47,7 +47,7 @@ function App() {
                   Cart
                   {cart.cartItems.length > 0 && (
                     <Badge pill bg="danger">
-                      {cart.cartItems.reduce((a, c) => a + c.quantity,0)}
+                      {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
                     </Badge>
                   )}
                 </Link>
@@ -86,7 +86,8 @@ function App() {
               <Route path="/signup" element={<SignupScreen />} />
               <Route path="/payment" element={<PaymentMethodScreen />} />
               <Route path="/placeorder" element={<PlaceOrderScreen />} />
-              <Route path="/order/:id" element={<OrderScreen />}></Route>              <Route path="/shipping" element={<ShippingAddressScreen />} />
+              <Route path="/order/:id" element={<OrderScreen />}></Route>{" "}
+              <Route path="/shipping" element={<ShippingAddressScreen />} />
               <Route path="/" element={<HomeScreen />} />
             </Routes>
           </Container>

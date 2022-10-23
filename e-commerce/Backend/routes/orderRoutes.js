@@ -29,7 +29,6 @@ orderRouter.get(
     const order = await Order.findById(req.params.id);
     if (order) {
       res.send(order);
-      console.log(order);
     } else {
       res.status(404).send({ message: "Order Not Found" });
     }
