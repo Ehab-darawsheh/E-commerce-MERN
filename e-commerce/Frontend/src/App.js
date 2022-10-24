@@ -19,6 +19,7 @@ import ShippingAddressScreen from "./screens/ShippingAddressScreen";
 import PaymentMethodScreen from "./screens/PaymentMethodScreen";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 import OrderScreen from "./screens/OrderScreen";
+import ProfileScreen from "./screens/ProfileScreen";
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -42,7 +43,7 @@ function App() {
               <LinkContainer to="/">
                 <Navbar.Brand>E-comemrce</Navbar.Brand>
               </LinkContainer>
-              <Nav className="me-auto">
+              <Nav>
                 <Link to="/cart" className="nav-link">
                   Cart
                   {cart.cartItems.length > 0 && (
@@ -56,13 +57,10 @@ function App() {
                     <LinkContainer to="/profile">
                       <NavDropdown.Item>User Profile</NavDropdown.Item>
                     </LinkContainer>
-                    <LinkContainer to="/orderhistory">
-                      <NavDropdown.Item>Order History</NavDropdown.Item>
-                    </LinkContainer>
                     <NavDropdown.Divider />
                     <Link
                       className="dropdown-item"
-                      to="/"
+                      to="/signin"
                       onClick={signoutHandler}
                     >
                       Sign Out
@@ -88,6 +86,7 @@ function App() {
               <Route path="/placeorder" element={<PlaceOrderScreen />} />
               <Route path="/order/:id" element={<OrderScreen />}></Route>{" "}
               <Route path="/shipping" element={<ShippingAddressScreen />} />
+              <Route path="/profile" element={<ProfileScreen />} />
               <Route path="/" element={<HomeScreen />} />
             </Routes>
           </Container>
